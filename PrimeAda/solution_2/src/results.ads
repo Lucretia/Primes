@@ -7,8 +7,8 @@ package Results is
    procedure Print (Total_Passes    : Integer;
                      Total_Duration : Duration;
                      Sieve_Size     : Long_Integer;
-                     Count1         : Integer;
-                     Count2         : Long_Integer;
+                     Count_1        : Integer;
+                     Count_2        : Long_Integer;
                      Valid          : Boolean;
                      Bit_Size       : Positive) with
      Inline;
