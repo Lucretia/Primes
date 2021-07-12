@@ -1,3 +1,6 @@
+with Ada.Strings.Fixed; use Ada.Strings.Fixed;
+with Ada.Text_IO;       use Ada.Text_IO;
+
 package body Results is
    function Find (Size : Long_Integer) return Long_Integer is
    begin
@@ -26,4 +29,48 @@ package body Results is
             return No_Element;
       end case;
    end Find;
+
+   procedure Print (Total_Passes    : Integer;
+                     Total_Duration : Duration;
+                     Sieve_Size     : Long_Integer;
+                     Count1         : Integer;
+                     Count2         : Long_Integer;
+                     Valid          : Boolean;
+                     Bit_Size       : Positive) is
+
+      package DIO is new Fixed_IO (Duration);
+      use DIO;
+
+      function Image (Dur : Duration) return String with
+        Inline;
+
+      use Ada.Strings;
+
+      function Image (Dur : Duration) return String is
+         Result : String (1 .. 9);
+      begin
+         DIO.Put (To => Result, Item => Dur, Aft => 6);
+
+         return Trim (Result, Both);
+      end Image;
+
+      Passes : constant String := Trim (Total_Passes'Image, Both);
+      Time   : constant String := Image (Total_Duration);
+      S1     : constant String :=
+         "Passes: "   & Passes &
+         ", Time: "   & Time &
+         ", Avg: "    & Image (Total_Duration / Duration (Total_Passes)) &
+         ", Limit: "  & Trim (Sieve_Size'Image, Both) &
+         ", Count1: " & Trim (Count1'Image, Both) &
+         ", Count2: " & Trim (Count2'Image, Both) &
+         ", Valid: "  & Valid'Image;
+      S2     : constant String :=
+         "Lucretia - Imperative;" & Passes &
+         ";" & Time &
+         ";1;algorithm=base,faithful=yes,bits=" & Trim (Bit_Size'Image, Both);
+   begin
+      New_Line;
+      Put_Line (S1);
+      Put_Line (S2);
+   end Print;
 end Results;
