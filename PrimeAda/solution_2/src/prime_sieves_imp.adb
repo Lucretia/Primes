@@ -3,20 +3,8 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Results;
 
 package body Prime_Sieves_Imp is
-   package IIO is new Integer_IO (Integer);
-   use IIO;
-
    package LIIO is new Integer_IO (Long_Integer);
    use LIIO;
-
-   package Index_IO is new Integer_IO (Bit_Index_Type);
-   use Index_IO;
-
-   package DIO is new Fixed_IO (Duration);
-   use DIO;
-
-   package BIO is new Enumeration_IO (Boolean);
-   use BIO;
 
    procedure Run (Sieve : in out Prime_Sieve) is
       Factor : Long_Integer := 3;
@@ -84,32 +72,13 @@ package body Prime_Sieves_Imp is
             New_Line;
          end if;
 
-         New_Line;
-         Put ("Passes: ");
-         Put (Total_Passes, Width => 0);
-         Put (", Time: ");
-         Put (Total_Duration, Fore => 2, Aft => 6);
-         Put (", Avg: ");
-         Put (Total_Duration / Duration (Total_Passes), Fore => 2);
-         Put (", Limit: ");
-         Put (Sieve_Size, Width => 0);
-         Put (", Count1: ");
-         Put (Count, Width => 0);
-         Put (", Count2: ");
-         Put (Count_Primes (Sieve), Width => 0);
-         Put (", Valid: ");
-         Put (Validate_Results (Sieve));
-
-         New_Line;
-         New_Line;
-
-         Put ("Lucretia - Imperative;");
-         Put (Total_Passes, Width => 0);
-         Put (";");
-         Put (Total_Duration, Fore => 2, Aft => 6);
-         Put (";1;algorithm=base,faithful=yes,bits=");
-         IIO.Put (Sieve.Bits (Sieve.Bits'First)'Size, Width => 0);
-         New_Line;
+         Results.Print (Total_Passes   => Total_Passes,
+                        Total_Duration => Total_Duration,
+                        Sieve_Size     => Long_Integer (Sieve_Size),
+                        Count1         => Count,
+                        Count2         => Count_Primes (Sieve),
+                        Valid          => Validate_Results (Sieve),
+                        Bit_Size       => Sieve.Bits (Sieve.Bits'First)'Size);
       end;
    end Print_Results;
 
