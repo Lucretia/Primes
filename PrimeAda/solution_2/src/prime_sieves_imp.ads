@@ -7,6 +7,8 @@ generic
    type Bit_Index_Type is range <>;
    type Boolean_Array_Type is array (Bit_Index_Type) of Boolean;
 package Prime_Sieves_Imp is
+   procedure Generate;
+private
    package Long_Float_Ops is new Ada.Numerics.Generic_Elementary_Functions (Long_Float);
    use Long_Float_Ops;
 
@@ -30,5 +32,4 @@ package Prime_Sieves_Imp is
      Inline;
    function Validate_Results (Sieve : Prime_Sieve) return Boolean with
      Inline;
-   procedure Generate;
 end Prime_Sieves_Imp;
