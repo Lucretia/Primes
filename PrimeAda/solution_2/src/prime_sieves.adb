@@ -75,8 +75,8 @@ package body Prime_Sieves is
          Results.Print (Total_Passes   => Total_Passes,
                         Total_Duration => Total_Duration,
                         Sieve_Size     => Long_Integer (Sieve_Size),
-                        Count1         => Count,
-                        Count2         => Count_Primes (Sieve),
+                        Count_1        => Count,
+                        Count_2        => Count_Primes (Sieve),
                         Valid          => Validate_Results (Sieve),
                         Bit_Size       => Sieve.Bits (Sieve.Bits'First)'Size);
       end;

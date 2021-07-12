@@ -33,8 +33,8 @@ package body Results is
    procedure Print (Total_Passes    : Integer;
                      Total_Duration : Duration;
                      Sieve_Size     : Long_Integer;
-                     Count1         : Integer;
-                     Count2         : Long_Integer;
+                     Count_1        : Integer;
+                     Count_2        : Long_Integer;
                      Valid          : Boolean;
                      Bit_Size       : Positive) is
 
@@ -61,8 +61,8 @@ package body Results is
          ", Time: "   & Time &
          ", Avg: "    & Image (Total_Duration / Duration (Total_Passes)) &
          ", Limit: "  & Trim (Sieve_Size'Image, Both) &
-         ", Count1: " & Trim (Count1'Image, Both) &
-         ", Count2: " & Trim (Count2'Image, Both) &
+         ", Count1: " & Trim (Count_1'Image, Both) &
+         ", Count2: " & Trim (Count_2'Image, Both) &
          ", Valid: "  & Valid'Image;
       S2     : constant String :=
          "Lucretia - Imperative;" & Passes &
