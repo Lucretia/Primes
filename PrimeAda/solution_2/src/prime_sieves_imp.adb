@@ -3,6 +3,34 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Results;
 
 package body Prime_Sieves_Imp is
+   procedure Generate is
+      use Ada.Calendar;
+
+      Passes_Completed :          Natural  := Natural'First;
+      Start_Time       : constant Time     := Clock;
+   begin
+      Main_Loop : loop
+         declare
+            Sieve : Prime_Sieve;
+         begin
+            Run (Sieve);
+
+            Passes_Completed := Passes_Completed + 1;
+
+            if Clock - Start_Time >= Loop_Duration then
+               Print_Results
+                  (Sieve          => Sieve,
+                   Verbose        => False,
+                   --  TODO: Is this correct??
+                   --  The C++ version of this seem to convert it's time from secons to ms and then back to seconds.
+                   Total_Duration => Clock - Start_Time,
+                   Total_Passes   => Passes_Completed);
+               exit Main_Loop;
+            end if;
+         end;
+      end loop Main_Loop;
+   end Generate;
+
    package LIIO is new Integer_IO (Long_Integer);
    use LIIO;
 
@@ -110,32 +138,4 @@ package body Prime_Sieves_Imp is
 
       return (Result = Count_Primes (Sieve));
    end Validate_Results;
-
-   procedure Generate is
-      use Ada.Calendar;
-
-      Passes_Completed :          Natural  := Natural'First;
-      Start_Time       : constant Time     := Clock;
-   begin
-      Main_Loop : loop
-         declare
-            Sieve : Prime_Sieve;
-         begin
-            Run (Sieve);
-
-            Passes_Completed := Passes_Completed + 1;
-
-            if Clock - Start_Time >= Loop_Duration then
-               Print_Results
-                  (Sieve          => Sieve,
-                   Verbose        => False,
-                   --  TODO: Is this correct??
-                   --  The C++ version of this seem to convert it's time from secons to ms and then back to seconds.
-                   Total_Duration => Clock - Start_Time,
-                   Total_Passes   => Passes_Completed);
-               exit Main_Loop;
-            end if;
-         end;
-      end loop Main_Loop;
-   end Generate;
 end Prime_Sieves_Imp;
