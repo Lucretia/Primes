@@ -71,6 +71,7 @@ package body Prime_Sieves_Imp is
             if Sieve.Bits (Bit_Index_Type (Number)) then
                if Verbose then
                   Put (Number, Width => 0);
+                  Put (", ");
                end if;
 
                Count := Count + 1;
