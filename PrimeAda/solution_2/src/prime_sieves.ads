@@ -2,6 +2,8 @@
 with Ada.Numerics.Generic_Elementary_Functions;
 
 generic
+   Loop_Duration : Duration;
+
    type Bit_Index_Type is range <>;
    type Boolean_Array_Type is array (Bit_Index_Type) of Boolean;
 package Prime_Sieves is

@@ -144,7 +144,6 @@ package body Prime_Sieves is
    procedure Generate is
       use Ada.Calendar;
 
-      Seconds_To_Loop  : constant Duration := 5.0;
       Passes_Completed :          Natural  := Natural'First;
       Start_Time       : constant Time     := Clock;
    begin
@@ -156,7 +155,7 @@ package body Prime_Sieves is
 
             Passes_Completed := Passes_Completed + 1;
 
-            if Clock - Start_Time >= Seconds_To_Loop then
+            if Clock - Start_Time >= Loop_Duration then
                Sieve.Print_Results
                   (Verbose        => False,
                   --  TODO: Is this correct??
