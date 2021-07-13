@@ -5,22 +5,17 @@ with Bitsets;
 generic
    Loop_Duration : Duration;
    Sieve_Size    : Long_Integer;
-
-   -- type Bit_Index_Type is range <>;
-   -- type Boolean_Array_Type is array (Bit_Index_Type) of Boolean;
 package Prime_Sieves_Bitset is
    procedure Generate;
 private
    package Long_Float_Ops is new Ada.Numerics.Generic_Elementary_Functions (Long_Float);
    use Long_Float_Ops;
 
-   -- Sieve_Size :          Bit_Index_Type := Bit_Index_Type'Last;
-   Q          : constant Long_Integer := Long_Integer (Sqrt (Long_Float (Sieve_Size)));
+   Q : constant Long_Integer := Long_Integer (Sqrt (Long_Float (Sieve_Size)));
 
    subtype Bitset is Bitsets.Bitset (1 .. Sieve_Size / Bitsets.Sub_Bitset'Size);
 
    True_Bits : constant Bitset := (others => Bitsets.Sub_Bitset'Last);
-   -- True_Bits : constant Boolean_Array_Type := (others => True);
 
    type Prime_Sieve is record
       Bits : Bitset := True_Bits;

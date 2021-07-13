@@ -1,4 +1,3 @@
--- with Bitsets;
 with Prime_Sieves;
 with Prime_Sieves_Imp;
 with Prime_Sieves_Bitset;
