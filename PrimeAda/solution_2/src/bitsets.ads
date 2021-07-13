@@ -9,7 +9,6 @@ package Bitsets is
    type Bitset is array (Long_Integer range <>) of Sub_Bitset with
      Alignment => (128 * 1024) / System.Storage_Elements.Storage_Element'Size;
 
-   procedure Stats (Bits : in Bitset);
    procedure Clear (Bits : in out Bitset; Bit : Long_Integer) with
      Inline;
 
