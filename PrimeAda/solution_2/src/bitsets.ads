@@ -1,7 +1,7 @@
 with Interfaces;
 with System.Storage_Elements;
 
-package Bitsets is
+package Bitsets with Pure is
    package I renames Interfaces;
 
    subtype Sub_Bitset is I.Unsigned_64;
