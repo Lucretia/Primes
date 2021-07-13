@@ -39,8 +39,7 @@ package body Bitsets is
       Index  : constant Long_Integer := Bit / Sub_Bitset'Size + 1;
       Offset : constant Sub_Bitset   := Sub_Bitset (Bit) rem Sub_Bitset'Size;
       Mask   : constant Sub_Bitset   := I.Shift_Left (1, Natural (Offset));
-      Result : constant Sub_Bitset   := I.Shift_Right (Bits (Index) and Mask, Natural (Offset));
    begin
-      return (if Result = 1 then True else False);
+      return (if (Bits (Index) and Mask) /= 0 then True else False);
    end Get;
 end Bitsets;
