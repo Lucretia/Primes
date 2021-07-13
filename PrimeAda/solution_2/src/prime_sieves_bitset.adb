@@ -108,6 +108,7 @@ package body Prime_Sieves_Bitset is
                         Count_1        => Count,
                         Count_2        => Count_Primes (Sieve),
                         Valid          => Validate_Results (Sieve),
+                        Num_Tasks      => 1,
                         Bit_Size       => 1);
       end;
    end Print_Results;
