@@ -4,12 +4,13 @@ package Results is
    function Find (Size : Long_Integer) return Long_Integer with
      Inline;
 
-   procedure Print (Total_Passes    : Integer;
-                     Total_Duration : Duration;
-                     Sieve_Size     : Long_Integer;
-                     Count_1        : Integer;
-                     Count_2        : Long_Integer;
-                     Valid          : Boolean;
-                     Bit_Size       : Positive) with
+   procedure Print (Name           : String;
+                    Total_Passes   : Integer;
+                    Total_Duration : Duration;
+                    Sieve_Size     : Long_Integer;
+                    Count_1        : Integer;
+                    Count_2        : Long_Integer;
+                    Valid          : Boolean;
+                    Bit_Size       : Positive) with
      Inline;
 end Results;

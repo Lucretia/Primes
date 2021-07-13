@@ -100,7 +100,8 @@ package body Prime_Sieves_Imp is
             New_Line;
          end if;
 
-         Results.Print (Total_Passes   => Total_Passes,
+         Results.Print (Name           => "Imperative",
+                        Total_Passes   => Total_Passes,
                         Total_Duration => Total_Duration,
                         Sieve_Size     => Long_Integer (Sieve_Size),
                         Count_1        => Count,
