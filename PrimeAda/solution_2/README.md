@@ -43,9 +43,10 @@ See the TODO inside [sieves.adb](./src/sieves.adb) as I think I converted it cor
 ┌───────┬────────────────┬──────────┬────────────────────────────┬────────┬──────────┬─────────┬───────────┬──────────┬──────┬───────────────┐
 │ Index │ Implementation │ Solution │ Label                      │ Passes │ Duration │ Threads │ Algorithm │ Faithful │ Bits │ Passes/Second │
 ├───────┼────────────────┼──────────┼────────────────────────────┼────────┼──────────┼─────────┼───────────┼──────────┼──────┼───────────────┤
-│   1   │ ada            │ 2        │ Lucretia - Imperative      │  3474  │ 5.00042  │    1    │   base    │   yes    │ 8    │   694.74192   │
-│   2   │ ada            │ 2        │ Lucretia - Object-Oriented │  2946  │ 5.00165  │    1    │   base    │   yes    │ 8    │   589.00575   │
-│   3   │ ada            │ 2        │ Lucretia - Object-Oriented │  2505  │ 5.00080  │    1    │   base    │   yes    │ 1    │   500.91945   │
-│   4   │ ada            │ 2        │ Lucretia - Imperative      │  2369  │ 5.00159  │    1    │   base    │   yes    │ 1    │   473.64947   │
+│   1   │ ada            │ 2        │ Lucretia - Bitset          │  3965  │ 5.00095  │    1    │   base    │   yes    │ 1    │   792.84904   │
+│   2   │ ada            │ 2        │ Lucretia - Object-Oriented │  3511  │ 5.00006  │    1    │   base    │   yes    │ 8    │   702.19214   │
+│   3   │ ada            │ 2        │ Lucretia - Imperative      │  3491  │ 5.00018  │    1    │   base    │   yes    │ 8    │   698.17473   │
+│   4   │ ada            │ 2        │ Lucretia - Imperative      │  2373  │ 5.00138  │    1    │   base    │   yes    │ 1    │   474.46943   │
+│   5   │ ada            │ 2        │ Lucretia - Object-Oriented │  2367  │ 5.00048  │    1    │   base    │   yes    │ 1    │   473.35427   │
 └───────┴────────────────┴──────────┴────────────────────────────┴────────┴──────────┴─────────┴───────────┴──────────┴──────┴───────────────┘
 ```
