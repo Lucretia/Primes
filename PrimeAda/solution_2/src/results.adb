@@ -30,13 +30,14 @@ package body Results is
       end case;
    end Find;
 
-   procedure Print (Total_Passes    : Integer;
-                     Total_Duration : Duration;
-                     Sieve_Size     : Long_Integer;
-                     Count_1        : Integer;
-                     Count_2        : Long_Integer;
-                     Valid          : Boolean;
-                     Bit_Size       : Positive) is
+   procedure Print (Name           : String;
+                    Total_Passes   : Integer;
+                    Total_Duration : Duration;
+                    Sieve_Size     : Long_Integer;
+                    Count_1        : Integer;
+                    Count_2        : Long_Integer;
+                    Valid          : Boolean;
+                    Bit_Size       : Positive) is
 
       package DIO is new Fixed_IO (Duration);
       use DIO;
@@ -65,7 +66,8 @@ package body Results is
          ", Count2: " & Trim (Count_2'Image, Both) &
          ", Valid: "  & Valid'Image;
       S2     : constant String :=
-         "Lucretia - Imperative;" & Passes &
+         "Lucretia - " & Name &
+         ";" & Passes &
          ";" & Time &
          ";1;algorithm=base,faithful=yes,bits=" & Trim (Bit_Size'Image, Both);
    begin
