@@ -1,5 +1,7 @@
+-- with Bitsets;
 with Prime_Sieves;
 with Prime_Sieves_Imp;
+with Prime_Sieves_Bitset;
 with System.Storage_Elements;
 
 procedure Sieves with CPU => 1 is
@@ -34,9 +36,14 @@ procedure Sieves with CPU => 1 is
       (Loop_Duration      => Seconds_To_Loop,
        Bit_Index_Type     => Boolean_Array_Range,
        Boolean_Array_Type => Unpacked_Boolean_Array_Type);
+
+   package Packed_Sieves_Bitset is new Prime_Sieves_Bitset
+      (Loop_Duration      => Seconds_To_Loop,
+       Sieve_Size         => Sieve_Size);
 begin
    Packed_Sieves.Generate;
    Unpacked_Sieves.Generate;
    Packed_Sieves_Imp.Generate;
    Unpacked_Sieves_Imp.Generate;
+   Packed_Sieves_Bitset.Generate;
 end Sieves;
