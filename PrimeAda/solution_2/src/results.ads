@@ -11,6 +11,7 @@ package Results is
                     Count_1        : Integer;
                     Count_2        : Long_Integer;
                     Valid          : Boolean;
+                    Num_Tasks      : Positive;
                     Bit_Size       : Positive) with
      Inline;
 end Results;

@@ -37,6 +37,7 @@ package body Results is
                     Count_1        : Integer;
                     Count_2        : Long_Integer;
                     Valid          : Boolean;
+                    Num_Tasks      : Positive;
                     Bit_Size       : Positive) is
 
       package DIO is new Fixed_IO (Duration);
@@ -69,7 +70,8 @@ package body Results is
          "Lucretia - " & Name &
          ";" & Passes &
          ";" & Time &
-         ";1;algorithm=base,faithful=yes,bits=" & Trim (Bit_Size'Image, Both);
+         ";" & Trim (Num_Tasks'Image, Both) &
+         ";algorithm=base,faithful=yes,bits=" & Trim (Bit_Size'Image, Both);
    begin
       New_Line;
       Put_Line (S1);

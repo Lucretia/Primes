@@ -107,6 +107,7 @@ package body Prime_Sieves_Imp is
                         Count_1        => Count,
                         Count_2        => Count_Primes (Sieve),
                         Valid          => Validate_Results (Sieve),
+                        Num_Tasks      => 1,
                         Bit_Size       => Sieve.Bits (Sieve.Bits'First)'Size);
       end;
    end Print_Results;
