@@ -13,7 +13,6 @@ package body Prime_Sieves_Bitset is
          declare
             Sieve : Prime_Sieve;
          begin
-            -- Bitsets.Stats (Sieve.Bits);
             Run (Sieve);
 
             Passes_Completed := Passes_Completed + 1;
