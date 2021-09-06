@@ -1,7 +1,7 @@
 FROM fedora:35 AS build
 
-RUN yum update -y
-RUN yum install -y yum-utils fedora-gnat-project-common gprbuild gcc-gnat
+RUN yum install -y yum-utils fedora-gnat-project-common gprbuild gcc-gnat \
+    yum clean all
 
 RUN mkdir -p /opt/app/src
 WORKDIR /opt/app/src
