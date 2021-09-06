@@ -1,6 +1,6 @@
 FROM fedora:35 AS build
 
-RUN yum install -y yum-utils fedora-gnat-project-common gprbuild gcc-gnat \
+RUN yum install -y yum-utils fedora-gnat-project-common gprbuild gcc-gnat && \
     yum clean all
 
 RUN mkdir -p /opt/app/src
